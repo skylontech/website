@@ -90,11 +90,6 @@
             >Portfolio</a
           >
           <a
-            onclick="showPage('privacy')"
-            class="nav-link text-white font-semibold"
-            >Privacy</a
-          >
-          <a
             onclick="showPage('contact')"
             class="nav-link text-white font-semibold"
             >Contact</a
@@ -133,11 +128,6 @@
           onclick="showPage('portfolio', true)"
           class="block py-2 px-4 text-sm text-white hover:bg-brand-teal"
           >Portfolio</a
-        >
-        <a
-          onclick="showPage('privacy', true)"
-          class="block py-2 px-4 text-sm text-white hover:bg-brand-teal"
-          >Privacy</a
         >
         <a
           onclick="showPage('contact', true)"
@@ -212,237 +202,15 @@
                   class="h-16 mx-auto md:mx-0"
                 />
               </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Page 4: Privacy Policy and Terms of Use -->
-      <section id="privacy" class="page">
-        <div class="container mx-auto px-6 py-20">
-          <!-- Privacy Policy -->
-          <div class="bg-white rounded-lg shadow-xl p-8 md:p-12 mb-16">
-            <h2
-              class="text-3xl md:text-4xl font-bold text-center text-brand-dark-blue mb-4"
-            >
-              Privacy Policy
-            </h2>
-            <p class="text-center text-gray-500 mb-10">
-              Last updated: September 8, 2025
-            </p>
-            <div class="space-y-8 text-gray-700">
-              <section>
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">
-                  Information We Collect
-                </h3>
-                <div class="space-y-4 pl-4">
-                  <div>
-                    <h4 class="text-lg font-semibold text-gray-800 mb-2">
-                      Account Information
-                    </h4>
-                    <p class="leading-relaxed">
-                      When you sign up, we collect authentication information
-                      provided by you or through third-party services (Google,
-                      Facebook), such as your name and email address, which is
-                      managed by Firebase Authentication.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 class="text-lg font-semibold text-gray-800 mb-2">
-                      Saved Locations
-                    </h4>
-                    <p class="leading-relaxed">
-                      We collect and store the weather locations you save to
-                      provide personalized weather forecasts. This data is
-                      stored in the Firebase Realtime Database.
-                    </p>
-                  </div>
-                  <div>
-                    <h4 class="text-lg font-semibold text-gray-800 mb-2">
-                      Automatically Collected Information
-                    </h4>
-                    <p class="leading-relaxed">
-                      We do not collect any special device information beyond
-                      what is automatically collected by the standard Firebase
-                      SDKs for operational purposes.
-                    </p>
-                  </div>
-                </div>
-              </section>
-              <section>
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">
-                  How We Use Your Information
-                </h3>
-                <ul class="list-disc list-inside space-y-2 pl-4">
-                  <li>
-                    To provide and personalize our services, such as delivering
-                    weather forecasts for your saved locations.
-                  </li>
-                  <li>To authenticate users and secure your account.</li>
-                  <li>
-                    To communicate with you about service updates or support
-                    inquiries.
-                  </li>
-                </ul>
-              </section>
-              <section>
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">
-                  Data Storage and Security
-                </h3>
-                <p class="leading-relaxed">
-                  Your authentication and personal data are securely stored and
-                  managed using Firebase Authentication and Firebase Realtime
-                  Database. We implement industry-standard security measures to
-                  protect your information.
-                </p>
-              </section>
-              <section>
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">
-                  Data Sharing
-                </h3>
-                <p class="leading-relaxed">
-                  We do not sell, trade, or otherwise transfer your personally
-                  identifiable information to third parties.
-                </p>
-              </section>
-              <section>
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">
-                  AI-Generated Content
-                </h3>
-                <p class="leading-relaxed">
-                  The app uses AI to generate hero images. These images are
-                  created algorithmically and do not use any personal data or
-                  images from the user.
-                </p>
-              </section>
-              <section>
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">
-                  Your Rights
-                </h3>
-                <p class="leading-relaxed">You have the right to:</p>
-                <ul class="list-disc list-inside space-y-2 pl-4 mt-2">
-                  <li>Access the personal information we hold about you</li>
-                  <li>Request correction of any inaccurate information</li>
-                  <li>Request deletion of your account and associated data</li>
-                  <li>Opt-out of non-essential communications</li>
-                </ul>
-              </section>
-              <section>
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">
-                  Children's Privacy
-                </h3>
-                <p class="leading-relaxed">
-                  Our service is not directed to children under 13. We do not
-                  knowingly collect personal information from children under 13.
-                  If you are a parent or guardian and believe your child has
-                  provided us with personal information, please contact us.
-                </p>
-              </section>
-              <section>
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">
-                  Changes to This Policy
-                </h3>
-                <p class="leading-relaxed">
-                  We may update our Privacy Policy from time to time. We will
-                  notify users of any significant changes through the app or via
-                  email.
-                </p>
-              </section>
-              <section>
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">
-                  Contact Us
-                </h3>
-                <p class="leading-relaxed">
-                  If you have any questions about this Privacy Policy, you can
-                  contact us at skylontechinc@gmail.com.
-                </p>
-              </section>
-            </div>
-          </div>
-
-          <!-- Terms of Use -->
-          <div class="bg-white rounded-lg shadow-xl p-8 md:p-12">
-            <h2
-              class="text-3xl md:text-4xl font-bold text-center text-brand-dark-blue mb-4"
-            >
-              Terms of Use
-            </h2>
-            <p class="text-center text-gray-500 mb-10">
-              Last updated: September 8, 2025
-            </p>
-            <div class="space-y-8 text-gray-700">
-              <section>
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">
-                  1. User Accounts
-                </h3>
-                <p class="leading-relaxed">
-                  Users can create an account using Google, Facebook, or a
-                  traditional email/password combination via Firebase
-                  Authentication. Users are responsible for maintaining the
-                  confidentiality of their account information.
-                </p>
-              </section>
-              <section>
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">
-                  2. User Conduct
-                </h3>
-                <p class="leading-relaxed">
-                  Users agree not to use the service for any unlawful purpose.
-                  Harassment, abuse, or dissemination of inappropriate content
-                  is strictly prohibited.
-                </p>
-              </section>
-              <section>
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">
-                  3. Intellectual Property
-                </h3>
-                <p class="leading-relaxed">
-                  All content within the "Whimsical Weather" app, including the
-                  AI-generated hero images, text, graphics, and logos, are the
-                  property of SkylonTech Inc. and are protected by copyright
-                  laws.
-                </p>
-              </section>
-              <section>
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">
-                  4. Disclaimer of Warranties
-                </h3>
-                <p class="leading-relaxed">
-                  The service is provided "as is." SkylonTech Inc. makes no
-                  warranties regarding the accuracy of weather data or clothing
-                  suggestions. Clothing suggestions are for entertainment
-                  purposes and should not be considered professional advice.
-                </p>
-              </section>
-              <section>
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">
-                  5. Limitation of Liability
-                </h3>
-                <p class="leading-relaxed">
-                  SkylonTech Inc. shall not be liable for any direct, indirect,
-                  incidental, or consequential damages resulting from the use or
-                  inability to use the service.
-                </p>
-              </section>
-              <section>
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">
-                  6. Changes to These Terms
-                </h3>
-                <p class="leading-relaxed">
-                  We reserve the right to modify or replace these Terms at any
-                  time. If a revision is material, we will provide at least 30
-                  days notice prior to any new terms taking effect.
-                </p>
-              </section>
-              <section>
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">
-                  7. Contact Information
-                </h3>
-                <p class="leading-relaxed">
-                  If you have any questions about these Terms of Use, please
-                  contact us at: skylontechinc@gmail.com.
-                </p>
-              </section>
+              <div class="mt-6 flex flex-wrap gap-4">
+                <a href="privacy.html" class="text-brand-teal hover:text-brand-orange transition-colors font-medium">
+                  Privacy Policy
+                </a>
+                <span class="text-gray-400">|</span>
+                <a href="terms.html" class="text-brand-teal hover:text-brand-orange transition-colors font-medium">
+                  Terms of Use
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -471,12 +239,7 @@
     <!-- Footer -->
     <footer class="bg-brand-dark-blue text-white">
       <div class="container mx-auto px-6 py-4 text-center">
-        <p class="mb-2">&copy; 2025 SkylonTech Inc. All Rights Reserved.</p>
-        <a
-          onclick="showPage('privacy')"
-          class="cursor-pointer text-sm text-gray-300 hover:text-brand-orange transition-colors"
-          >Privacy Policy & Terms of Use</a
-        >
+        <p>&copy; 2025 SkylonTech Inc. All Rights Reserved.</p>
       </div>
     </footer>
 
