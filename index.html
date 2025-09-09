@@ -63,6 +63,84 @@
         box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
           0 4px 6px -2px rgba(0, 0, 0, 0.05);
       }
+
+      /* Carousel Styles */
+      .carousel-container {
+        position: relative;
+        width: 100%;
+        height: auto;
+        min-height: 300px;
+        overflow: hidden;
+        background-color: #f3f4f6;
+      }
+      @media (min-width: 768px) {
+        .carousel-container {
+          min-height: 400px;
+        }
+      }
+      .carousel-wrapper {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        height: 100%;
+      }
+      .carousel-slide {
+        min-width: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      .carousel-slide img {
+        max-width: 100%;
+        max-height: 100%;
+        height: auto;
+        width: auto;
+        object-fit: contain;
+      }
+      .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(26, 59, 74, 0.7);
+        color: white;
+        border: none;
+        padding: 12px 16px;
+        cursor: pointer;
+        font-size: 18px;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+        z-index: 10;
+      }
+      .carousel-btn:hover {
+        background-color: rgba(26, 59, 74, 0.9);
+      }
+      .carousel-btn.prev {
+        left: 10px;
+      }
+      .carousel-btn.next {
+        right: 10px;
+      }
+      .carousel-indicators {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 8px;
+        z-index: 10;
+      }
+      .carousel-dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      .carousel-dot.active {
+        background-color: #ff7a47;
+      }
     </style>
   </head>
   <body class="antialiased">
@@ -177,13 +255,49 @@
             Our Portfolio
           </h2>
           <div class="bg-white rounded-lg shadow-xl overflow-hidden md:flex">
-            <div class="md:w-1/2">
-              <!-- IMPORTANT: Replace this placeholder with your app screenshot -->
-              <img
-                src="Screenshot_Whimsical_Weather.jpg"
-                alt="Whimsical Weather App Screenshot"
-                class="object-cover h-full w-full"
-              />
+            <div class="md:w-1/2 carousel-container">
+              <!-- Carousel Wrapper -->
+              <div class="carousel-wrapper">
+                <!-- Carousel Slides -->
+                <div class="carousel-slide">
+                  <img
+                    src="Screenshot_Whimsical_Weather_1.jpg"
+                    alt="Whimsical Weather App Screenshot 1"
+                  />
+                </div>
+                <div class="carousel-slide">
+                  <!-- IMPORTANT: Replace with your second screenshot -->
+                  <img
+                    src="Screenshot_Whimsical_Weather_2.jpg"
+                    alt="Whimsical Weather App Screenshot 2"
+                  />
+                </div>
+                <div class="carousel-slide">
+                  <!-- IMPORTANT: Replace with your third screenshot -->
+                  <img
+                    src="Screenshot_Whimsical_Weather_3.jpg"
+                    alt="Whimsical Weather App Screenshot 3"
+                  />
+                </div>
+              </div>
+
+              <!-- Navigation Buttons -->
+              <button class="carousel-btn prev" onclick="changeSlide(-1)">
+                &#10094;
+              </button>
+              <button class="carousel-btn next" onclick="changeSlide(1)">
+                &#10095;
+              </button>
+
+              <!-- Indicators -->
+              <div class="carousel-indicators">
+                <span
+                  class="carousel-dot active"
+                  onclick="currentSlide(1)"
+                ></span>
+                <span class="carousel-dot" onclick="currentSlide(2)"></span>
+                <span class="carousel-dot" onclick="currentSlide(3)"></span>
+              </div>
             </div>
             <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
               <h3 class="text-3xl font-bold text-brand-dark-blue mb-4">
@@ -203,11 +317,17 @@
                 />
               </a>
               <div class="mt-6 flex flex-wrap gap-4">
-                <a href="privacy.html" class="text-brand-teal hover:text-brand-orange transition-colors font-medium">
+                <a
+                  href="privacy.html"
+                  class="text-brand-teal hover:text-brand-orange transition-colors font-medium"
+                >
                   Privacy Policy
                 </a>
                 <span class="text-gray-400">|</span>
-                <a href="terms.html" class="text-brand-teal hover:text-brand-orange transition-colors font-medium">
+                <a
+                  href="terms.html"
+                  class="text-brand-teal hover:text-brand-orange transition-colors font-medium"
+                >
                   Terms of Use
                 </a>
               </div>
@@ -277,6 +397,65 @@
       // Set the initial page
       document.addEventListener("DOMContentLoaded", () => {
         showPage("home");
+      });
+
+      // Carousel functionality
+      let slideIndex = 0;
+      let autoPlayInterval;
+
+      function changeSlide(n) {
+        const slides = document.getElementsByClassName("carousel-slide");
+        const totalSlides = slides.length;
+        
+        slideIndex += n;
+        
+        if (slideIndex >= totalSlides) {
+          slideIndex = 0;
+        }
+        if (slideIndex < 0) {
+          slideIndex = totalSlides - 1;
+        }
+        
+        updateSlide();
+        resetAutoPlay();
+      }
+
+      function currentSlide(n) {
+        slideIndex = n - 1;
+        updateSlide();
+        resetAutoPlay();
+      }
+
+      function updateSlide() {
+        const wrapper = document.querySelector('.carousel-wrapper');
+        const dots = document.getElementsByClassName("carousel-dot");
+        
+        // Apply transform to slide
+        wrapper.style.transform = `translateX(-${slideIndex * 100}%)`;
+        
+        // Update dots
+        for (let i = 0; i < dots.length; i++) {
+          dots[i].classList.remove("active");
+        }
+        if (dots[slideIndex]) {
+          dots[slideIndex].classList.add("active");
+        }
+      }
+
+      function startAutoPlay() {
+        autoPlayInterval = setInterval(() => {
+          changeSlide(1);
+        }, 5000); // Change slide every 5 seconds
+      }
+
+      function resetAutoPlay() {
+        clearInterval(autoPlayInterval);
+        startAutoPlay();
+      }
+
+      // Start auto-play when page loads
+      document.addEventListener("DOMContentLoaded", () => {
+        startAutoPlay();
       });
     </script>
   </body>
